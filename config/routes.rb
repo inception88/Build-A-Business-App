@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'users#home'
+
   resources :favorites
   resources :ratings
   resources :appointments

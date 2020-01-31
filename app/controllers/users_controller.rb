@@ -1,12 +1,20 @@
 class UsersController < ApplicationController
+    def home
+    end
+    
     def new
         @user = User.new
     end
 
     def create
-        @user = User.create(user_params)
-        session[:user_id] = @user.id
-        redirect_to "/users/#{@user.id}"
+        @user = User.new(user_params)
+        if @user.save
+            session[:user_id] = @user.id
+            redirect_to "/users/#{@user.id}"
+        else
+            flash[:message] = @user.errors
+            redirect_to "/users/new"
+        end
     end
      
     def show
