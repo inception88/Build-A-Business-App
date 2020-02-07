@@ -43,3 +43,10 @@ test:
 
 production:
   url: <%= ENV["DATABASE_URL"] %>
+  adapter: postgresql
+  encoding: unicode
+  database: benjones
+  pool: 5
+  username: benjones
+  password:
+  timeout: 5000
