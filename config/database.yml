@@ -45,8 +45,8 @@ production:
   url: <%= ENV["DATABASE_URL"] %>
   adapter: postgresql
   encoding: unicode
-  database: benjones
+  database: postgres
   pool: 5
-  username: benjones
+  username: postgres
   password:
   timeout: 5000
