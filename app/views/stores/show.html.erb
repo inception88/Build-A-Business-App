@@ -2,4 +2,10 @@
 <h2>City: <%= @store.city %> </h2><br>
 <h2>State: <%= @store.state %> </h2><br>
 <h3>Rating: <%= @store.overall_rating %><br>
+
+<%= form_tag ({controller: 'favorites', action: 'create', method: 'post'})  do %>
+    <%= hidden_field_tag  :id, "#{@store.id}" %>
+    <input type=submit value='Add to Favorites'>
+<% end %>
+
 <%= link_to "All Stores", stores_path %>
