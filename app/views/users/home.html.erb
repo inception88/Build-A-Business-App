@@ -1,4 +1,6 @@
-<%= link_to 'Sign Up', '/users/new' %>
+<% if session[:user_id] == nil %>
+    <%= link_to 'Sign Up', '/users/new' %>
+    <% end %> 
 <% if session[:user_id] != nil %>
     <%= link_to 'Logout', '/logout' %>
     <% else %>
