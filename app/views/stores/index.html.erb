@@ -1,0 +1,5 @@
+<h1>See the List of Stores Below:</h1>
+<% @stores.each do |s| %>
+    <%= link_to s.name, store_path(s) %><br>
+<% end %>
+<%= link_to "My Profile", user_path(current_user) %><br>
