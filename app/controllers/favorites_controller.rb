@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
         if @favorites.include?(Favorite.find_by_id(params[:id]))
             Favorite.find_by_id(params[:id]).destroy
         end
-        redirect_to '/favorites/1'
+        redirect_to '/favorites/list'
     end
 
 end
