@@ -1,0 +1,12 @@
+<%= flash[:message] %>
+
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+
+    <%= label_tag name="name" %>
+    <%= text_field_tag :password %>
+    
+    <%= label_tag name="password"  %>
+    <%= text_field_tag :password %>
+
+    <input type=submit value='Sign In'>
+<% end %>

@@ -2,5 +2,5 @@
 <% if session[:user_id] != nil %>
     <%= link_to 'Logout', '/logout' %>
     <% else %>
-    <%= link_to 'Log In', '/sessions/new' %>
+    <%= link_to 'Log In', '/signin' %>
 <% end %> 
