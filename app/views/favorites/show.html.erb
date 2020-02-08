@@ -1,0 +1,3 @@
+<% current_user.favorites.each do |f| %>
+    <%= link_to f.store, store_path(f.store)<br>
+<% end %>
