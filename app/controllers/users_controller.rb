@@ -24,6 +24,20 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        @user = current_user
+    end
+
+    def update
+        @user = current_user
+        if @user.update(user_params)
+            redirect_to user_path(@user)
+        else
+            flash[:message] = @user.errors
+            redirect_to edit_user_path(@user)
+        end
+    end
+
     private
      
     def user_params

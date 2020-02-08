@@ -4,4 +4,5 @@
 <h2>City: <%= @user.city %> </h2><br>
 <h2>State: <%= @user.state %> </h2><br>
 
+<%= link_to 'Edit Info', edit_user_path(@user) %>
 <%= link_to 'Logout', '/logout' %>
