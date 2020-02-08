@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Store.create(name: "Toys-We-R", city: "Cincinnati", state: "Ohio")
 Store.create(name: "EnterAction Apparel", city: "Lindenwold", state: "New Jersey")
+Store.create(name: "Where You BenNat?", city: "Cincinnati", state: "Ohio")
+Store.create(name: "Savij", city: "Las Vegas", state: "Nevada")
