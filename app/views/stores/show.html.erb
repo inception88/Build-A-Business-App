@@ -1,13 +1,16 @@
 <h1>Name: <%= @store.name %> </h1><br>
 <h2>City: <%= @store.city %> </h2><br>
 <h2>State: <%= @store.state %> </h2><br>
+
 <% if rated?(@store) %>
     <h3>Your Rating: <%= rating_score(@store) %><br>
+    
     <%= form_tag rating_path(rating(@store)), method: "delete"  do %>
         <%= hidden_field_tag  :id, "#{@store.id}" %>
         <input type=submit value=Delete Rating><br><br>
     <% end %>
 <% end %>
+
 <h3>Overall Rating: <%= @store.overall_rating %><br>
 
 <%= form_tag ({controller: 'ratings', action: 'create', method: 'post'})  do %>
