@@ -27,12 +27,13 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to "/users/#{@user.id}"
         else
-            @user = User.create(uid: auth['uid']) do |u|
+            @user = User.new(uid: auth['uid']) do |u|
                 u.name = auth['info']['name']
                 u.email = auth['info']['email']
                 u.image = auth['info']['image']
                 u.password = SecureRandom.hex
             end
+            @user.save
             session[:user_id] = @user.id
             redirect_to "/users/#{@user.id}"
         end
