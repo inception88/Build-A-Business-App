@@ -2,6 +2,15 @@
 <h2>City: <%= @store.city %> </h2><br>
 <h2>State: <%= @store.state %> </h2><br>
 
+<%= form_for (@appointment) do |f| %>
+    <%= f.label :date %>
+    <%= f.datetime_field :datetime %>
+
+    <%= hidden_field_tag :id, "#{@store.id}" %>
+
+    <%= f.submit "Book Appointment" %>
+<% end %>
+
 <% if rated?(@store) %>
     <h3>Your Rating: <%= rating_score(@store) %><br>
     

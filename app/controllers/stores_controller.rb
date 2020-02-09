@@ -5,5 +5,6 @@ class StoresController < ApplicationController
     
     def show
         @store = Store.find(params[:id])
+        @appointment = Appointment.new
     end
 end

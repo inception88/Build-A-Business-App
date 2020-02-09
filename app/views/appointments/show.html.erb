@@ -1,0 +1,11 @@
+<h1> Appointments </h1>
+<% current_user.appointments.each do |a| %>
+    <%= link_to a.store.name, store_path(a.store) %>
+    <%= a.datetime.strftime("%A, %B %d at %I:%M %p") %>
+    <%= form_tag appointment_path(a.id), method: "delete"  do %>
+        <%= hidden_field_tag  :id, "#{a.id}" %>
+        <input type=submit value='Cancel Appointment'><br><br>
+    <% end %>
+<% end %>
+
+<br><%= link_to "My Profile", user_path(current_user) %>
