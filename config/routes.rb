@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/auth/facebook/callback' => 'users#facebook'
 
   resources :favorites
   resources :ratings

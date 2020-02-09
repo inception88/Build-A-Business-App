@@ -16,6 +16,27 @@ class UsersController < ApplicationController
             redirect_to "/users/new"
         end
     end
+
+    def facebook
+        if @user = User.find_by(uid: auth['uid'])
+            session[:user_id] = @user.id
+            redirect_to "/users/#{@user.id}"
+        elsif User.find_by(email: auth['info']['email'])
+            @user = User.find_by(email: auth['info']['email'])
+            @user.update(uid: auth['uid'], image: auth['info']['image'])
+            session[:user_id] = @user.id
+            redirect_to "/users/#{@user.id}"
+        else
+            @user = User.create(uid: auth['uid']) do |u|
+                u.name = auth['info']['name']
+                u.email = auth['info']['email']
+                u.image = auth['info']['image']
+                u.password = SecureRandom.hex
+            end
+            session[:user_id] = @user.id
+            redirect_to "/users/#{@user.id}"
+        end
+    end
      
     def show
         @user = current_user
@@ -42,5 +63,9 @@ class UsersController < ApplicationController
      
     def user_params
         params.require(:user).permit(:name, :password, :city, :state, :email)
+    end
+
+    def auth
+        request.env['omniauth.auth']
     end
 end

@@ -1,9 +1,10 @@
 <% if session[:user_id] == nil %>
-    <%= link_to 'Sign Up', '/users/new' %>
-    <% end %> 
+    <%= link_to 'Sign Up', '/users/new' %><br>
+    <%= link_to 'Log In', '/signin' %><br>
+    <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% end %> 
 <% if session[:user_id] != nil %>
     <%= link_to "My Profile", user_path(current_user) %><br>
     <%= link_to 'Logout', '/logout' %>
-    <% else %>
-    <%= link_to 'Log In', '/signin' %>
+<% else %>
 <% end %> 
