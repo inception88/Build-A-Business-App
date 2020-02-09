@@ -5,7 +5,6 @@
 <%= form_for (@appointment) do |f| %>
     <%= f.label :date %>
     <%= f.datetime_field :datetime %>
-
     <%= hidden_field_tag :id, "#{@store.id}" %>
 
     <%= f.submit "Book Appointment" %>
