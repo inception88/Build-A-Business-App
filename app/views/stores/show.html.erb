@@ -4,7 +4,7 @@
 
 <%= form_for (@appointment) do |f| %>
     <%= f.label :date %>
-    <%= f.datetime_local_field :datetime %>
+    <%= f.datetime_local_field :datetime, value: "2020-08-17T12:00"%>
     <%= hidden_field_tag :id, "#{@store.id}" %>
 
     <%= f.submit "Book Appointment" %>
