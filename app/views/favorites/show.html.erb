@@ -1,6 +1,12 @@
 <h1> Favorites </h1>
 <% current_user.favorites.each do |f| %>
     <%= link_to f.store.name, store_path(f.store) %>
+    <%= form_for (f) do |t| %>
+        <%= t.label :category %>
+        <%= t.text_field :category %>
+    
+        <%= t.submit "Add Category" %>
+    <% end %>
     <%= form_tag favorite_path(f.id), method: "delete"  do %>
         <%= hidden_field_tag  :id, "#{f.id}" %>
         <input type=submit value='Remove From Favorites'><br><br>
