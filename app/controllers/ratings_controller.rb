@@ -1,5 +1,13 @@
 class RatingsController < ApplicationController
 
+    def index
+        if params[:store_id]
+         @ratings = Store.find(params[:store_id]).ratings
+        else
+         @ratings = Rating.all
+        end
+    end
+
     def create
         @rating = Rating.find_or_create_by(store_id: params[:id], user_id: current_user.id)
         @rating.update(score: params[:score])
