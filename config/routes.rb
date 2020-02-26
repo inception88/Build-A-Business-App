@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :appointments
   resources :stores do
     # nested resource for ratings
-    resources :ratings, only: [:index]
+    resources :ratings, only: [:index, :new]
   end
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

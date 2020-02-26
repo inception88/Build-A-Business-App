@@ -13,8 +13,8 @@ Specs:
 - [x] Include login (how e.g. Devise) - Users can login
 - [x] Include logout (how e.g. Devise) - Users can logout
 - [x] Include third party signup/login (how e.g. Devise/OmniAuth) - Users can sign in with Facebook
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes) - Ratings index view is nested through stores URL stores/:id/ratings
+- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new) URL stores/:id/ratings/new
 - [x] Include form display of validation errors (form URL e.g. /recipes/new) - Users will see an error if having an issue when trying to login
 
 Confirm:

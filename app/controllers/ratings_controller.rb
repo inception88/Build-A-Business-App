@@ -1,5 +1,13 @@
 class RatingsController < ApplicationController
 
+    def new
+        @rating = Rating.new
+        @store = Store.find_by(id: params[:store_id])
+        if @store == nil
+            redirect_to stores_path
+        end
+    end
+
     def index
         if params[:store_id]
             @store = Store.find_by(id: params[:store_id])
@@ -12,9 +20,20 @@ class RatingsController < ApplicationController
     end
 
     def create
-        @rating = Rating.find_or_create_by(store_id: params[:id], user_id: current_user.id)
-        @rating.update(score: params[:score])
-        redirect_to store_path(@rating.store)
+        if params[:store_id]
+            @store = Store.find_by(id: params[:store_id])
+            if @store == nil
+                redirect_to stores_path
+            else
+                @rating = Rating.find_or_create_by(store_id: @store.id, user_id: current_user.id)
+                @rating.update(score: params[:rating][:score])
+                redirect_to store_path(@rating.store)
+            end
+        else
+            @rating = Rating.find_or_create_by(store_id: params[:id], user_id: current_user.id)
+            @rating.update(score: params[:score])
+            redirect_to store_path(@rating.store)
+        end
     end
 
     def destroy

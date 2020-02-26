@@ -1,0 +1,8 @@
+<h1> Add rating to <%= @store.name %></h1>
+<%= form_for(@rating) do |f| %>
+    <%= f.label :Rating %>
+    <%= f.select :score, options_for_select([1,2,3,4,5], 5) %>
+    <%= hidden_field_tag  :store_id, "#{@store.id}" %>
+    <br>
+    <%= f.submit %>
+<% end %>
