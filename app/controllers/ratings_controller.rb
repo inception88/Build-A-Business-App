@@ -2,9 +2,12 @@ class RatingsController < ApplicationController
 
     def index
         if params[:store_id]
-         @ratings = Store.find(params[:store_id]).ratings
-        else
-         @ratings = Rating.all
+            @store = Store.find_by(id: params[:store_id])
+            if @store == nil
+                redirect_to stores_path
+            else
+                @ratings = @store.ratings
+            end
         end
     end
 

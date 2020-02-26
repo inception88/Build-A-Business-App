@@ -1,0 +1,6 @@
+<h1><%= @store.name %> Ratings</h1>
+<% @ratings.each do |r| %>
+    <h1> <%= r.user.name %></h1>
+    <h2> <%= r.score %></h2>
+    <br>
+<% end %>
