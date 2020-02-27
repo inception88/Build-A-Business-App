@@ -17,6 +17,15 @@ class UsersController < ApplicationController
         end
     end
 
+    def fb
+        @user = current_user
+        if @user.admin == false
+            redirect_to root_url
+        else
+            @users = User.facebook
+        end
+    end
+
     def facebook
         if @user = User.find_by(uid: auth['uid'])
             session[:user_id] = @user.id

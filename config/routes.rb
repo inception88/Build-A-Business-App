@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   get '/auth/facebook/callback' => 'users#facebook'
+  get '/users/fb' => 'users#fb'
+
 
   resources :favorites
   resources :ratings
