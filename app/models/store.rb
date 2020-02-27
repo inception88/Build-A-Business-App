@@ -17,4 +17,6 @@ class Store < ApplicationRecord
             return "No Ratings Submitted"
         end
     end
+
+    scope :city_search, ->(city) { where("city = ?", city) }
 end
