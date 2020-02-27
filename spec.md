@@ -8,7 +8,7 @@ Specs:
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients) - User has_many Stores, through Favorites & Store has_many Users, through Favorites
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity) - Users have the ability to add a category to their favorites.
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item) - Users have multiple validations. To prevent duplicates, user's email must be unique. Also, the presence of an email and password is required. Emails must also be in an email format. Ratings validate the score  is between 1 and 5.
-- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes) - Stores have a class method to get avergae rating from all users that provided a rating for the store. (@store.overall_rating) Every store will show their overall_rating URL: /stores/:id
+- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes) - Users that have a Facebook account attached may all be viewed by an admin. User.facebook URL /users/fb.
 - [x] Include signup (how e.g. Devise) - Users can signup
 - [x] Include login (how e.g. Devise) - Users can login
 - [x] Include logout (how e.g. Devise) - Users can logout
