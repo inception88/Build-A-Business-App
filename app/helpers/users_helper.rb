@@ -4,7 +4,6 @@ module UsersHelper
         if !flash.nil?
         flash.each do |m|
             message = message + "Your #{m[0]} #{m[1][0]}. "
-            #message << m
             end
         else
             message = nil
